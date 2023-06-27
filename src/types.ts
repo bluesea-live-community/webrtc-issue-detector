@@ -67,6 +67,7 @@ export enum IssueType {
 }
 
 export enum IssueReason {
+  OutboundAudioNoData = 'outbount-audio-no-data',
   OutboundNetworkQuality = 'outbound-network-quality',
   InboundNetworkQuality = 'inbound-network-quality',
   OutboundNetworkMediaLatency = 'outbound-network-media-latency',

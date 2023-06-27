@@ -4,5 +4,6 @@ export { default as FramesEncodedSentIssueDetector } from './FramesEncodedSentIs
 export { default as InboundNetworkIssueDetector } from './InboundNetworkIssueDetector';
 export { default as NetworkMediaSyncIssueDetector } from './NetworkMediaSyncIssueDetector';
 export { default as OutboundNetworkIssueDetector } from './OutboundNetworkIssueDetector';
+export { default as OutboundAudioIssueDetector } from './OutboundAudioIssueDetector';
 export { default as QualityLimitationsIssueDetector } from './QualityLimitationsIssueDetector';
 export { default as UnknownVideoDecoderImplementationDetector } from './UnknownVideoDecoderImplementationDetector';

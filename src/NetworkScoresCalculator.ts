@@ -68,8 +68,12 @@ class NetworkScoresCalculator implements INetworkScoresCalculator {
     const { sumJitter } = rtpNetworkStats;
     const avgJitter = sumJitter / remoteInboundRTPStreamsStats.length;
 
-    const deltaPacketSent = packetsSent - lastPacketsSent;
     const deltaPacketLost = rtpNetworkStats.packetsLost - rtpNetworkStats.lastPacketsLost;
+    const deltaPacketSent = packetsSent - lastPacketsSent;
+
+    if (deltaPacketSent == 0 && deltaPacketLost == 0) {
+      return undefined;
+    }
 
     const packetsLoss = deltaPacketSent && deltaPacketLost
       ? Math.round((deltaPacketLost * 100) / (deltaPacketSent + deltaPacketLost))
@@ -112,6 +116,9 @@ class NetworkScoresCalculator implements INetworkScoresCalculator {
 
     const deltaPacketReceived = packetsReceived - lastPacketsReceived;
     const deltaPacketLost = rtpNetworkStats.packetsLost - rtpNetworkStats.lastPacketsLost;
+    if (deltaPacketReceived == 0 && deltaPacketLost == 0) {
+      return undefined;
+    }
 
     const packetsLoss = deltaPacketReceived && deltaPacketLost
       ? Math.round((deltaPacketLost * 100) / (deltaPacketReceived + deltaPacketLost))
